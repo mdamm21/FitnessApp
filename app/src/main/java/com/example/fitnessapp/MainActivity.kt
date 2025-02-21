@@ -4,14 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,6 +15,7 @@ import com.example.fitnessapp.auth.LogInScreen
 import com.example.fitnessapp.auth.MainScreen
 import com.example.fitnessapp.auth.SignUpScreen
 import com.example.fitnessapp.main.NotificationMessage
+import com.example.fitnessapp.pages.HomeScreen
 import com.example.fitnessapp.ui.theme.FitnessAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,9 +36,10 @@ class MainActivity : ComponentActivity() {
 }
 
 sealed class DestinationScreen(val route: String){
-    data object Main: DestinationScreen(route = "main")
-    data object SignUp: DestinationScreen(route = "SignUp")
-    data object LogIn: DestinationScreen(route = "LogIn")
+    object Main: DestinationScreen(route = "main")
+    object SignUp: DestinationScreen(route = "SignUp")
+    object LogIn: DestinationScreen(route = "LogIn")
+    object Home: DestinationScreen(route = "Home")
 }
 
 @Composable
@@ -60,6 +58,9 @@ fun Authentication(){
         }
         composable(DestinationScreen.LogIn.route){
             LogInScreen(navController, vm)
+        }
+        composable(DestinationScreen.Home.route) {
+            BottomBarMainScreen(navController = navController, vm = vm, modifier = Modifier)
         }
     }
 }

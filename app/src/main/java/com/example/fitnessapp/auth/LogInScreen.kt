@@ -237,7 +237,7 @@ fun LogInScreen (navController: NavController, vm: FirebaseViewModel){
                 )
             }
             if(vm.signedIn.value){
-                navController.navigate(DestinationScreen.Main.route) //evtl noch anpasssen
+                navController.navigate(DestinationScreen.Home.route) //evtl noch anpasssen
             }
             vm.signedIn.value = false
         }
