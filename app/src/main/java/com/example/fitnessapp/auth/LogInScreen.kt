@@ -56,7 +56,8 @@ fun LogInScreen (navController: NavController, vm: FirebaseViewModel){
     var errorP by remember { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xAE78E17B)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
@@ -76,7 +77,7 @@ fun LogInScreen (navController: NavController, vm: FirebaseViewModel){
         ){
         Text(
             text ="Log In",
-            color = Color.Gray,
+            color = Color.White,
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
@@ -119,8 +120,8 @@ fun LogInScreen (navController: NavController, vm: FirebaseViewModel){
                 .width(300.dp)
                 .height(60.dp),
             colors = TextFieldDefaults.textFieldColors(
-                unfocusedIndicatorColor = Color.White,
-                focusedIndicatorColor = Color.White,
+                unfocusedIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
                 cursorColor = Color.Green,
                 containerColor = Color.Gray,
                 focusedLeadingIconColor = Color.White,
@@ -225,13 +226,14 @@ fun LogInScreen (navController: NavController, vm: FirebaseViewModel){
                 }
             },
                 colors = ButtonDefaults.buttonColors(
-                    Color.Transparent
+                    containerColor = Color.Gray,
+                    contentColor = Color.Transparent
                 ),
                 modifier = Modifier.width(200.dp)
             ) {
                 Text(
                     text = "Log In",
-                    color = Color.Black,
+                    color = Color.White,
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold
                 )

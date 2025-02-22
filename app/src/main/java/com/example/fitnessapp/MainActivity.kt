@@ -16,6 +16,7 @@ import com.example.fitnessapp.auth.MainScreen
 import com.example.fitnessapp.auth.SignUpScreen
 import com.example.fitnessapp.main.NotificationMessage
 import com.example.fitnessapp.pages.HomeScreen
+import com.example.fitnessapp.pages.UserProfileScreen
 import com.example.fitnessapp.ui.theme.FitnessAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +41,7 @@ sealed class DestinationScreen(val route: String){
     object SignUp: DestinationScreen(route = "SignUp")
     object LogIn: DestinationScreen(route = "LogIn")
     object Home: DestinationScreen(route = "Home")
+    object UserProfile: DestinationScreen(route = "User Profile")
 }
 
 @Composable
@@ -61,6 +63,9 @@ fun Authentication(){
         }
         composable(DestinationScreen.Home.route) {
             BottomBarMainScreen(navController = navController, vm = vm, modifier = Modifier)
+        }
+        composable(DestinationScreen.UserProfile.route){
+            UserProfileScreen(navController = navController, vm = vm, modifier = Modifier)
         }
     }
 }

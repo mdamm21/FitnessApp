@@ -2,13 +2,13 @@ package com.example.fitnessapp
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.example.fitnessapp.data.UserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.lang.Exception
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import javax.inject.Inject
@@ -107,6 +107,37 @@ class FirebaseViewModel @Inject constructor(val auth: FirebaseAuth): ViewModel()
     fun getTodayDocumentId(): String {
         val sdf = SimpleDateFormat("yyyyMMdd", Locale.getDefault())
         return sdf.format(Date())
+    }
+
+    fun saveUserProfile(profile: UserProfile, onSuccess: () -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val uid = auth.currentUser?.uid ?: return
+        db.collection("userProfiles")
+            .document(uid)
+            .set(profile)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { e ->
+                popUpNotification.value = Event("Profil konnte nicht gespeichert werden: ${e.localizedMessage}")
+            }
+    }
+
+    fun loadUserProfile(callback: (UserProfile?) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val uid = auth.currentUser?.uid ?: return callback(null)
+        db.collection("userProfiles")
+            .document(uid)
+            .get()
+            .addOnSuccessListener { doc ->
+                if(doc.exists()) {
+                    val profile = doc.toObject(UserProfile::class.java)
+                    callback(profile)
+                } else {
+                    callback(null)
+                }
+            }
+            .addOnFailureListener {
+                callback(null)
+            }
     }
 
 }

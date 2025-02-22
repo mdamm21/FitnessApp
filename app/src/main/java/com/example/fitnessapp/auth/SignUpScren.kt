@@ -63,7 +63,8 @@ fun SignUpScreen (navController: NavController, vm: FirebaseViewModel) {
     var pLength by remember { mutableStateOf(false) }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xAE78E17B)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
@@ -329,19 +330,20 @@ fun SignUpScreen (navController: NavController, vm: FirebaseViewModel) {
                 }
             },
                 colors = ButtonDefaults.buttonColors(
-                    Color.Transparent
+                    containerColor = Color.Gray,
+                    contentColor = Color.Transparent
                 ),
                 modifier = Modifier.width(200.dp)
             ) {
                 Text(
                     text = "Sign Up",
-                    color = Color.Black,
+                    color = Color.White,
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
             if(vm.signedIn.value){
-                navController.navigate(DestinationScreen.Main.route) //evtl noch anpasssen
+                navController.navigate(DestinationScreen.UserProfile.route)
             }
             vm.signedIn.value = false
         }

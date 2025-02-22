@@ -34,11 +34,11 @@ fun MainScreen (navController: NavController, vm:FirebaseViewModel){
             .padding(top = 100.dp)
     ){
         Text( text = "Willkommen",
-            color = Color.White,
+            color = Color.Black,
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(160.dp))
 
         Box(
             modifier = Modifier
