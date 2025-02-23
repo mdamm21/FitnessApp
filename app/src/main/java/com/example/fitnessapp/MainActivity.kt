@@ -17,7 +17,7 @@ import com.example.fitnessapp.auth.SignUpScreen
 import com.example.fitnessapp.main.NotificationMessage
 import com.example.fitnessapp.pages.HomeScreen
 import com.example.fitnessapp.pages.UserProfileScreen
-import com.example.fitnessapp.ui.theme.FitnessAppTheme
+import com.example.fitnessapp.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             window.statusBarColor = getColor(R.color.black)
             window.navigationBarColor = getColor(R.color.black)
-            FitnessAppTheme {
+            AppTheme {
 
                 Authentication()
             }
