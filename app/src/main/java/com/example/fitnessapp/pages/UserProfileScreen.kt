@@ -7,7 +7,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,11 +29,11 @@ fun UserProfileScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xAE78E17B))
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Profil erstellen", fontSize = 30.sp, color = Color.White)
+        Text(text = "Profil erstellen", fontSize = 30.sp, color = MaterialTheme.colorScheme.onBackground)
         Spacer(modifier = Modifier.height(16.dp))
         OutlinedTextField(
             value = gender,

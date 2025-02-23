@@ -46,7 +46,7 @@ fun KaloriesScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xAE78E17B))
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -55,7 +55,8 @@ fun KaloriesScreen(
             text = "Kalorien: $total",
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground,
+            style = MaterialTheme.typography.headlineLarge
         )
         Spacer(modifier = Modifier.height(160.dp))
 
@@ -83,7 +84,7 @@ fun MealInputRow(label: String, value: String, onValueChange: (String) -> Unit) 
     ) {
         Text(
             text = label,
-            color = Color.White,
+            color = MaterialTheme.colorScheme.onBackground,
             modifier = Modifier.weight(1f)
         )
         OutlinedTextField(
@@ -91,9 +92,9 @@ fun MealInputRow(label: String, value: String, onValueChange: (String) -> Unit) 
             onValueChange = onValueChange,
             singleLine = true,
             colors = TextFieldDefaults.outlinedTextFieldColors(
-                focusedBorderColor = Color.White,
-                unfocusedBorderColor = Color.White,
-                cursorColor = Color.White,
+                focusedBorderColor = MaterialTheme.colorScheme.onBackground,
+                unfocusedBorderColor = MaterialTheme.colorScheme.onBackground,
+                cursorColor = MaterialTheme.colorScheme.onBackground,
             ),
             modifier = Modifier.weight(1f)
         )

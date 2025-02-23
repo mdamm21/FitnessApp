@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -107,8 +108,8 @@ fun SignUpScreen(navController: NavController, vm: FirebaseViewModel) {
                 .width(300.dp)
                 .height(60.dp),
             colors = TextFieldDefaults.textFieldColors(
-                unfocusedIndicatorColor = MaterialTheme.colorScheme.surface,
-                focusedIndicatorColor = MaterialTheme.colorScheme.surface,
+                unfocusedIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
                 cursorColor = MaterialTheme.colorScheme.primary,
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 focusedLeadingIconColor = MaterialTheme.colorScheme.onSurface,
@@ -179,8 +180,8 @@ fun SignUpScreen(navController: NavController, vm: FirebaseViewModel) {
                 .width(300.dp)
                 .height(60.dp),
             colors = TextFieldDefaults.textFieldColors(
-                unfocusedIndicatorColor = MaterialTheme.colorScheme.surface,
-                focusedIndicatorColor = MaterialTheme.colorScheme.surface,
+                unfocusedIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
                 cursorColor = MaterialTheme.colorScheme.primary,
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 focusedLeadingIconColor = MaterialTheme.colorScheme.onSurface,
@@ -248,8 +249,8 @@ fun SignUpScreen(navController: NavController, vm: FirebaseViewModel) {
                 .width(300.dp)
                 .height(60.dp),
             colors = TextFieldDefaults.textFieldColors(
-                unfocusedIndicatorColor = MaterialTheme.colorScheme.surface,
-                focusedIndicatorColor = MaterialTheme.colorScheme.surface,
+                unfocusedIndicatorColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
                 cursorColor = MaterialTheme.colorScheme.primary,
                 containerColor = MaterialTheme.colorScheme.secondaryContainer,
                 focusedLeadingIconColor = MaterialTheme.colorScheme.onSurface,

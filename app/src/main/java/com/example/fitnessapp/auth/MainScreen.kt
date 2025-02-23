@@ -21,11 +21,13 @@ import com.example.fitnessapp.FirebaseViewModel
 @Composable
 fun MainScreen(navController: NavController, vm: FirebaseViewModel) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 100.dp)
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
+
         Text(
             text = "Willkommen",
             color = MaterialTheme.colorScheme.onBackground,

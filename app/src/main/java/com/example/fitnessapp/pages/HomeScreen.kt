@@ -2,6 +2,7 @@ package com.example.fitnessapp.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -51,7 +52,7 @@ fun HomeScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xAE78E17B))
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -60,7 +61,8 @@ fun HomeScreen(
             text = "Home",
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground,
+            style = MaterialTheme.typography.headlineLarge
         )
         Spacer(modifier = Modifier.height(160.dp))
 
@@ -68,7 +70,7 @@ fun HomeScreen(
             text = "Kalorien: $actualCalories / $recommendedCalories",
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground
         )
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -76,7 +78,7 @@ fun HomeScreen(
             text = "BMI: ${"%.1f".format(bmi)}",
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground
         )
 
         if(vm.signedIn.value){

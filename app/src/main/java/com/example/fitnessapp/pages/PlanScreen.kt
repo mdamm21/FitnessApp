@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -82,7 +83,7 @@ fun PlanScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xAE78E17B))
+            .background(MaterialTheme.colorScheme.background)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     )
@@ -91,7 +92,8 @@ fun PlanScreen(
             text = "Trainingsplan",
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground,
+            style = MaterialTheme.typography.headlineLarge
         )
         Spacer(modifier = Modifier.height(160.dp))
         orderedDays.forEach { day ->
@@ -107,12 +109,12 @@ fun PlanScreen(
                         text = day,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onBackground
                     )
                     Text(
                         text = trainingPlan[day] ?: "",
                         fontSize = 16.sp,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onBackground
                     )
                 }
                 val checked = progressMap[day] ?: false
@@ -124,7 +126,7 @@ fun PlanScreen(
                     },
                     colors = CheckboxDefaults.colors(
                         checkedColor = Color.Green,
-                        uncheckedColor = Color.White
+                        uncheckedColor = MaterialTheme.colorScheme.onBackground
                     )
                 )
             }
