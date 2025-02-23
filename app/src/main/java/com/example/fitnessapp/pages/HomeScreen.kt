@@ -56,7 +56,12 @@ fun HomeScreen(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
+        Text(
+            text = "Home",
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
         Spacer(modifier = Modifier.height(160.dp))
 
         Text(

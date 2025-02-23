@@ -139,5 +139,43 @@ class FirebaseViewModel @Inject constructor(val auth: FirebaseAuth): ViewModel()
                 callback(null)
             }
     }
+    fun savePlanProgress(progress: Map<String, Boolean>) {
+        val db = FirebaseFirestore.getInstance()
+        val uid = auth.currentUser?.uid ?: return
+        db.collection("planProgress")
+            .document(uid)
+            .set(progress)
+            .addOnSuccessListener {
+                // Optional: Erfolgsmeldung, falls gewünscht
+            }
+            .addOnFailureListener { e ->
+                popUpNotification.value = Event("Plan Fortschritt konnte nicht gespeichert werden: ${e.localizedMessage}")
+            }
+    }
 
+    fun loadPlanProgress(callback: (Map<String, Boolean>) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val uid = auth.currentUser?.uid ?: return callback(emptyMap())
+        db.collection("planProgress")
+            .document(uid)
+            .get()
+            .addOnSuccessListener { doc ->
+                if (doc.exists() && doc.data != null) {
+                    // Konvertiere das zurückgegebene Map<String, Any> in Map<String, Boolean>
+                    val progress = doc.data!!.mapValues { entry ->
+                        when (val value = entry.value) {
+                            is Boolean -> value
+                            is Long -> value != 0L // Falls als Zahl gespeichert
+                            else -> false
+                        }
+                    }
+                    callback(progress)
+                } else {
+                    callback(emptyMap())
+                }
+            }
+            .addOnFailureListener {
+                callback(emptyMap())
+            }
+    }
 }
