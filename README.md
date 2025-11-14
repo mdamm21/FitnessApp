@@ -1,6 +1,6 @@
 # AI Fitness App
 
-**AI Fitness App** Das Ziel ist die Entwicklung einer AI Fitness App, welche mithilfe von KI individuelle Trinigspläne für den User generiert.
+Das Ziel ist die Entwicklung einer AI Fitness App, welche mithilfe von KI individuelle Trinigspläne für den User generiert.
 ---
 
 ## Features
